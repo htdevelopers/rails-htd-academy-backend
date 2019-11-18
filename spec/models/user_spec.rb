@@ -14,4 +14,8 @@ describe User do
       it { should validate_uniqueness_of(:email) }
     end
   end
+
+  context 'enumerators' do
+    it { should define_enum_for(:role).with_values(%w(patient doctor admin)) }
+  end
 end
