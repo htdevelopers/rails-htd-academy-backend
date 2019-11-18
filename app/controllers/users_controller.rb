@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
     @users = User.all
   end
@@ -24,6 +24,13 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      redirect_to users_path
+    end
+  end
+
+  def destroy
+    if @user.destroy
+      flash[:notice] = "User successfully deleted"
       redirect_to users_path
     end
   end
