@@ -8,5 +8,7 @@
   <%= user.number_field :age %>
   <%= user.label :email %>
   <%= user.email_field :email %>
+  <%= user.label :role %>
+  <%= user.select :role, User.roles.keys.map { |w| [w.humanize, w] } %>
   <%= user.submit %>
 <% end %>

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
-    @users = User.all
+    @patients = User.where(role: :patient)
+    @doctors = User.where(role: :doctor)
   end
 
   def new
@@ -42,6 +43,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :age, :email)
+    params.require(:user).permit(:first_name, :last_name, :age, :email, :role)
   end
 end
