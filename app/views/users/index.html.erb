@@ -3,6 +3,7 @@
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 <%= button_to 'Create new user', new_user_path, method: :get %>
+<% if current_user.doctor? %>
 <h2>Patients</h2>
 <table>
   <thead>
@@ -32,6 +33,7 @@
   <% end %>
   </tbody>
 </table>
+  <% else %>
 <h2>Doctors</h2>
 <table>
   <thead>
@@ -57,3 +59,4 @@
   <% end %>
   </tbody>
 </table>
+<% end %>

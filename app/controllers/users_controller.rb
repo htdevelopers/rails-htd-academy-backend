@@ -3,8 +3,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @patients = User.patient
-    @doctors = User.doctor
+    if current_user.doctor?
+      @patients = User.patient
+    else
+      @doctors = User.doctor
+    end
   end
 
   def new
