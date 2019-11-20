@@ -1,0 +1,24 @@
+<h2>List of Doctors</h2>
+
+<table>
+  <thead>
+  <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Practicing From</td>
+    <td>Qualification Number</td>
+    <td>Employment</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @doctors.each do |doctor| %>
+    <tr>
+      <td><%= doctor.first_name %></td>
+      <td><%= doctor.last_name %></td>
+      <td><%= doctor.practicing_from.strftime("%d-%m-%Y") %></td>
+      <td><%= doctor.qualification_number %></td>
+      <td><%= doctor.employment.humanize %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
