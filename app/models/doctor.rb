@@ -1,5 +1,7 @@
 class Doctor < ApplicationRecord
 
+  has_many :patients
+
   validates :first_name, :last_name, :practicing_from, :qualification_number, :employment, presence: true
   validates_uniqueness_of :qualification_number
 
