@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
-    @patients = User.where(role: :patient)
-    @doctors = User.where(role: :doctor)
+    @patients = User.patient
+    @doctors = User.doctor
   end
 
   def new
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show; end
 
   def edit
-    render 'users/new'
+    render :new
   end
 
   def create
