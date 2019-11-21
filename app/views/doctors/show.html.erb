@@ -1,0 +1,25 @@
+<h3>Doctor <%= @doctor.id %> details</h3>
+<table>
+  <thead>
+  <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Practicing From</td>
+    <td>Qualification Number</td>
+    <td>Employment</td>
+    <td>Created At</td>
+    <td>Updated At</td>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @doctor.first_name %></td>
+      <td><%= @doctor.last_name %></td>
+      <td><%= @doctor.practicing_from.strftime("%d-%m-%Y") %></td>
+      <td><%= @doctor.qualification_number %></td>
+      <td><%= @doctor.employment.humanize %></td>
+      <td><%= @doctor.created_at %></td>
+      <td><%= @doctor.updated_at %></td>
+    </tr>
+  </tbody>
+</table>
