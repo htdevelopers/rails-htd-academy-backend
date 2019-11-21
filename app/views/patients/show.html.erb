@@ -1,0 +1,23 @@
+<h3>Patient <%= @patient.id %> details</h3>
+<table>
+  <thead>
+  <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Age</td>
+    <td>Gender</td>
+    <td>Created At</td>
+    <td>Updated At</td>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @patient.first_name %></td>
+      <td><%= @patient.last_name %></td>
+      <td><%= @patient.age %></td>
+      <td><%= @patient.gender.titleize %></td>
+      <td><%= @patient.created_at %></td>
+      <td><%= @patient.updated_at %></td>
+    </tr>
+  </tbody>
+</table>

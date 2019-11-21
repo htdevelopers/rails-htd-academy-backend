@@ -1,5 +1,5 @@
 <h2>List of Patients</h2>
-
+<%= button_to 'New Patient', new_patient_path, method: :get %>
 <table>
   <thead>
   <tr>
@@ -7,6 +7,9 @@
     <td>Last Name</td>
     <td>Age</td>
     <td>Gender</td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   </thead>
   <tbody>
@@ -16,6 +19,9 @@
       <td><%= patient.last_name %></td>
       <td><%= patient.age %></td>
       <td><%= patient.gender.titleize %></td>
+      <td><%= link_to 'Details', patient_path(patient.id) %></td>
+      <td><%= link_to 'Edit', edit_patient_path(patient.id) %></td>
+      <td><%= link_to 'Delete', patient_path(patient.id), method: :delete %></td>
     </tr>
   <% end %>
   </tbody>
