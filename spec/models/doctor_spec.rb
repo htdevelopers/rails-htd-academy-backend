@@ -15,6 +15,10 @@ describe Doctor do
     end
   end
 
+  context 'relations' do
+    it { should have_many(:patients) }
+  end
+
   context 'enumerators' do
     it { should define_enum_for(:employment).with_values(%w(full_time part_time intern contract)) }
   end
