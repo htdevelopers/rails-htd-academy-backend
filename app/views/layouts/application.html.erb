@@ -12,7 +12,10 @@
   <body>
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
+    <% elsif flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
     <% end %>
+    <%= current_user.full_name %>
     <%= yield %>
   </body>
 </html>

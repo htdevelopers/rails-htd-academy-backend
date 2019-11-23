@@ -1,4 +1,5 @@
 class DoctorsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_doctor, except: %i(index new create)
 
   def index
