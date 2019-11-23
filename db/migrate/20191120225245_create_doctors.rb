@@ -4,9 +4,11 @@ class CreateDoctors < ActiveRecord::Migration[5.2]
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.timestamp :practicing_from, null: false
-      t.integer :qualification_number, null: false, uniqe: true
+      t.integer :qualification_number, null: false
       t.integer :employment, null: false, default: 0
       t.timestamps
     end
+
+    add_index :doctors, :qualification_number, unique: true
   end
 end

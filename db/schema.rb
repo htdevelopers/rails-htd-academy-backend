@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_225245) do
     t.integer "employment", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["qualification_number"], name: "index_doctors_on_qualification_number", unique: true
   end
 
   create_table "patients", force: :cascade do |t|
