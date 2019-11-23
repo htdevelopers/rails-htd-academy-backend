@@ -4,6 +4,8 @@ class Doctor < ApplicationRecord
   validates :first_name, :last_name, :practicing_from, :qualification_number, :employment, presence: true
   validates :qualification_number, uniqueness: true
 
+  has_many :patients
+
   enum employment: {
     full_time: 0,
     part_time: 1,
