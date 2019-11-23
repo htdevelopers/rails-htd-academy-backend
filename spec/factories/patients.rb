@@ -4,5 +4,6 @@ FactoryBot.define do
     last_name { Faker::Name.last_name }
     age { rand(100) }
     gender { :male }
+    doctor
   end
 end

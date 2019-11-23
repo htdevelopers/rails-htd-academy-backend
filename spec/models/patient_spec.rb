@@ -8,6 +8,10 @@ describe Patient do
     it { should validate_presence_of :gender }
   end
 
+  context 'relations' do
+    it { should belong_to(:doctor).optional }
+  end
+
   context 'enumerators' do
     it { should define_enum_for(:gender).with_values(%w(male female other)) }
   end

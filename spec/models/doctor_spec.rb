@@ -9,6 +9,10 @@ describe Doctor do
     it { should validate_presence_of(:employment) }
   end
 
+  context 'relations' do
+    it { should have_many(:patients) }
+  end
+
   context 'uniqueness' do
     before { FactoryBot.create(:doctor) }
 
