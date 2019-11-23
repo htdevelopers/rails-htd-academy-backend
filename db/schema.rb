@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_23_093956) do
+ActiveRecord::Schema.define(version: 2019_11_23_111712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.date "practicing_from", null: false
+    t.integer "qualification_number", null: false
+    t.integer "employment", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["qualification_number"], name: "index_doctors_on_qualification_number", unique: true
+  end
 
   create_table "patients", force: :cascade do |t|
     t.string "first_name", null: false
