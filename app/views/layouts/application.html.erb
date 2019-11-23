@@ -15,7 +15,13 @@
     <% elsif flash[:alert] %>
       <div class="alert"><%= flash[:alert] %></div>
     <% end %>
-    <%= current_user.full_name %>
+    <%  if current_user %>
+    <div class="logged-user">
+      <span><%= current_user.full_name %></span>
+      <%= image_tag current_user&.avatar, size: 50 %>
+    </div>
+    <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
