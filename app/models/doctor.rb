@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class Doctor < ApplicationRecord
-  validates_presence_of :first_name, :last_name, :practicing_from, :qualification_number, :employment
-  validates_uniqueness_of :qualification_number
+  validates :first_name, :last_name, :practicing_from, :qualification_number, :employment, presence: true
+  validates :qualification_number, uniqueness: true
 
   has_many :patients
 
   enum employment: {
-      full_time: 0,
-      part_time: 1,
-      intern: 2,
-      contract: 3
+    full_time: 0,
+    part_time: 1,
+    intern: 2,
+    contract: 3
   }
-end
+  end

@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Patient do
   context 'validations' do
-    it { should validate_presence_of :first_name }
-    it { should validate_presence_of :last_name }
-    it { should validate_presence_of :age }
-    it { should validate_presence_of :gender }
+    it { is_expected.to validate_presence_of :first_name }
+    it { is_expected.to validate_presence_of :last_name }
+    it { is_expected.to validate_presence_of :age }
+    it { is_expected.to validate_presence_of :gender }
   end
 
   context 'relations' do
-    it { should belong_to(:doctor).optional }
+    it { is_expected.to belong_to(:doctor).optional }
   end
 
   context 'enumerators' do
-    it { should define_enum_for(:gender).with_values(%w(male female other)) }
+    it { is_expected.to define_enum_for(:gender).with_values(%w[male female other]) }
   end
 end
