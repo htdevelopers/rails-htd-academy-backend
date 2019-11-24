@@ -1,0 +1,11 @@
+<%= form_for @patient do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.label :age %>
+  <%= f.number_field :age %>
+  <%= f.label :gender %>
+  <%= f.select :gender, Patient.genders.keys %>
+  <%= f.submit 'Save' %>
+<% end %>

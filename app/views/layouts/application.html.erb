@@ -13,6 +13,20 @@
     <% if current_user %>
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
     <% end %>
+
+    <% if flash[:notice]  %>
+    <div class="alert alert-info">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:error]  %>
+    <div class="alert alert-danger">
+      <%=  flash[:error] %>
+    </div>
+  <% end %>
+
+  <%= button_to 'New Patient', new_patient_path, method: :get, class: 'btn btn-primary' %>
+
     <%= yield %>
   </body>
 </html>

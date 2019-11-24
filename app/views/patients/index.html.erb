@@ -1,4 +1,4 @@
-<h2>List of Doctors</h2>
+<h2>List of Patients</h2>
 
 <table class="table">
   <thead>
@@ -8,16 +8,21 @@
       <td>Age</td>
       <td>Gender</td>
       <td>Doctor</td>
+      <td>Actions</td>
     </tr>
   </thead>
   <tbody>
   <% @patients.each do |patient| %>
     <tr>
-      <td><%= patient.first_name %></td>
+      <td><%= link_to patient.first_name, patient_path(patient.id) %></td>
       <td><%= patient.last_name %></td>
       <td><%= patient.age %></td>
       <td><%= patient.gender.titleize %></td>
       <td><%= patient.doctor&.first_name %></td>
+      <td>
+        <%= link_to 'Delete this patient', patient_path(patient), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit this patient', edit_patient_path(patient), class: "btn btn-info" %>
+      </td>
     </tr>
   <% end %>
   </tbody>
