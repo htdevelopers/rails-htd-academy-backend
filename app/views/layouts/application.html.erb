@@ -25,7 +25,7 @@
     </div>
   <% end %>
 
-  <%= button_to 'New Patient', new_patient_path, method: :get, class: 'btn btn-primary' %>
+  <%= button_to('New Patient', new_patient_path, method: :get, class: 'btn btn-primary') if current_user %>
 
     <%= yield %>
   </body>
